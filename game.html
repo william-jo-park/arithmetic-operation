@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 본 페이지로 넘어 왔을 때 조금의 시간 딜레이를 주어야 함.
+        페이지 전환 되었을 때 문제가 바로 시작된다면 시간 측정이 
+        제대로 이루어지 않을 것이기 때문이다. -->
+        <meta charset="utf-8">
+        <title>사칙연산게임</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body id="gameBody">
+        <!-- 페이지의 기본 구성 -->
+        <br> <br>
+        <h1 id = "h1Title">문제: </h1>
+        <h1>
+            <!-- 문제 출력 영역 -->
+            <div class="problemPrint">
+                <t class="problemField"></t>
+            </div>
+        </h1>
+
+        <br> <br> <br>
+
+        아래 네모 상자에 정답을 입력해주세요.
+        <br> <br>
+
+        <!-- 정답 입력 영역 -->
+        <div class="form">
+            <label for="answerField">정답: </label>
+            <!-- <input type="text" id="answerField" class="answerField" onKeyDown = "enterKey();"> -->
+            <input type="text" id="answerField" class="answerField">
+            <input type="submit" value="확 인" class="answerSubmit">
+        </div>
+
+        <h1>
+            <!-- 정답 유무 확인 영역 -->
+            <div class="truefalsePrint">
+                <t class="truefalseField"></t>
+            </div>
+        </h1>
+
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
