@@ -39,21 +39,24 @@ function createNumber(min, max, oper) {
     var ranN2 = 0;
 
     if(oper === 1) { /* 뺄셈일 경우 */
+        console.log("In case of 뺄셈");
         ranN1 = createRandomNumber(min, max);
         ranN2 = createRandomNumber(min, max);
 
-        if(ranN1 < ranN2) {}
+        if(ranN1 < ranN2) {
+            ;
+        }
 
     } else if(oper === 3) { /* 나눗셈일 경우 */
-        ranN1 = Math.floor(Math.random() * (max - min) + min);
-        ranN2 = Math.floor(Math.random() * (max - min) + min);
+        console.log("In case of 나눗셈");
+        ranN1 = createRandomNumber(min, max);
+        ranN2 = createRandomNumber(min, max);
     } else {
-        ranN1 = Math.floor(Math.random() * (max - min) + min);
-        ranN2 = Math.floor(Math.random() * (max - min) + min);
-//        return Math.floor(Math.random() * (max - min) + min);
+        ranN1 = createRandomNumber(min, max);
+        ranN2 = createRandomNumber(min, max);
     }
 
-    return ranN1, ranN2;
+    return [ranN1, ranN2];
 }
 
 
@@ -91,9 +94,12 @@ function makeProblemAnswer() {
     var symVal = createOperator(minOper, maxOper);
 
     // 두 개의 정수 생성하기
-    var numOne = createNumber(minValue, maxValue, symVal);
-    var numTwo = createNumber(minValue, maxValue, symVal);
-    //var numOne, numTwo = createNumber(minValue, maxValue, symVal);
+    //var numOne = createNumber(minValue, maxValue, symVal);
+    //var numTwo = createNumber(minValue, maxValue, symVal);
+    var numVal = createNumber(minValue, maxValue, symVal);
+    var numOne = numVal[0];
+    var numTwo = numVal[1];
+
     console.log("minValue: " + minValue, "maxValue: " + maxValue);
 
     // 화면에 출력할 문제 정리하기
@@ -199,5 +205,5 @@ answerSubmit.addEventListener('click', checkAnswer);
 11. 가장 빨리 답을 입력한 시간과 가장 늦게 답을 입력한 시간을 표시하도록 수정
 12. 덧셈, 뺄셈, 곱셈, 나눗셈에 대해 혼합하여 푸는 방식을 개별로 나누어서 진행 할 수 있도록 수정
 13. 게임을 진행할 숫자의 범위를 설정할 수 있도록 수정
-14. 문제와 답을 입력하는 양식을 화면 중앙에 위치하도록 수정
+14. 문제와 답을 입력하는 양식을 화면 중앙에 위치하도록 수정 <-- Completed
 */
