@@ -3,17 +3,25 @@ html {
 }
 
 body {
-    margin: 0;
-    /* text-align: center; */
+    /*margin: 0;*/
     background-color: white;
 }
 
+h1 {
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+}
+
 t {
-    /* */
+    text-align: center;
 }
 
 t1 {
     /* */
+    text-align: center;
     color: blue;
 }
 
