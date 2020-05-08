@@ -1,6 +1,9 @@
 var minValue = 1;
 var maxValue = 10;
 
+var minOper = 0;
+var maxOper = 4;
+
 // var arithSym = ["+", "-", "X", "&divide;"];
 var arithSym = ["＋", "－", "×", "÷"];
 
@@ -21,8 +24,13 @@ var timerId1 = null;
 
 
 /* min 이상 max 미만의 정수 난수를 생성하기 */
-function createOperator(min, max) {
+function createRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function createOperator(min, max) {
+    var vOper = createRandomNumber(min, max);
+    return vOper;
 }
 
 /* min 이상 max 미만의 정수 난수를 생성하기 */
@@ -30,10 +38,13 @@ function createNumber(min, max, oper) {
     var ranN1 = 0;
     var ranN2 = 0;
 
-    if(oper === 1) {
-        ranN1 = Math.floor(Math.random() * (max - min) + min);
-        ranN2 = Math.floor(Math.random() * (max - min) + min);
-    } else if(oper === 3) {
+    if(oper === 1) { /* 뺄셈일 경우 */
+        ranN1 = createRandomNumber(min, max);
+        ranN2 = createRandomNumber(min, max);
+
+        if(ranN1 < ranN2) {}
+
+    } else if(oper === 3) { /* 나눗셈일 경우 */
         ranN1 = Math.floor(Math.random() * (max - min) + min);
         ranN2 = Math.floor(Math.random() * (max - min) + min);
     } else {
@@ -77,7 +88,7 @@ function makeProblemAnswer() {
     console.log("Running makeProblemAnswer() function");
 
     // 사칙연산 기호 값 생성하기
-    var symVal = createOperator(0, 4);
+    var symVal = createOperator(minOper, maxOper);
 
     // 두 개의 정수 생성하기
     var numOne = createNumber(minValue, maxValue, symVal);
@@ -100,7 +111,7 @@ function makeProblemAnswer() {
 }
 
 
-/* "(정수) (사칙연산 기호) (정수)" 형태를 만들어서 화면에 출력하기 */
+/* 문제 영역을 초기화한 후 0.5초 뒤에 문제를 */
 function printProblem() {
     console.log("Running printProblem() function");
 
@@ -180,7 +191,7 @@ answerSubmit.addEventListener('click', checkAnswer);
 4. 하나의 문제를 풀고나면 다른 문제가 출제되도록 수정 <-- Completed
 5. 답을 확인한 후 문제 영역을 지우도록 수정 <-- Completed
 
-6. 뺄셈과 나눗셈의 경우 빼는 수(또는 나눠지는 수)가 빼지는 수(또는 나누는 수)보다 큰 수를 가지도록 수정
+6. 뺄셈과 나눗셈의 경우 빼는 수(또는 나눠지는 수)가 빼지는 수(또는 나누는 수)보다 큰 수를 가지도록 수정 <-- In progress
 7. 나눗셈의 경우 나머지가 생기지 않도록 수정(또는 몫을 입력하고 나머지를 입력할 수 있는 양식으로 수정)
 8. 10개의 문제로 문제 수를 제한
 9. 답을 입력하면 문제 풀이 시간을 표시하도록 수정
