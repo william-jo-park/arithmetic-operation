@@ -4,7 +4,7 @@ var maxValue = 10; /* 한 자리수 게임일 경우는 10, 두 자리수 게임
 var minOper = 0;
 var maxOper = 4;
 
-var digitNum = 1; /* 자리수 - 이수 자리수를 높일 경우 자리수에 대한 입력값을 전달 받도록 수정 필요 */
+// var digitNum = 1; /* 자리수 - 이수 자리수를 높일 경우 자리수에 대한 입력값을 전달 받도록 수정 필요 */
 
 // var arithSym = ["+", "-", "X", "&divide;"];
 var arithSym = ["＋", "－", "×", "÷"];
